@@ -85,4 +85,4 @@ def process_image(image_src, conf, verbose):
         with LOG_LOCK:
             print("Applying watermark on image file:", image_src, "...")
     result = w.watermark(image_src, conf)
-    result.save(image_src)
+    result.save(image_src, "JPEG", quality=100)
