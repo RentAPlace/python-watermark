@@ -1,3 +1,4 @@
+-e git://github.com/RentAPlace/python-common.git@f6f97282f8cdac8f2199c33b57bb800000358ef6#egg=python-common
 click==6.7
 olefile==0.44
 Pillow==4.3.0
