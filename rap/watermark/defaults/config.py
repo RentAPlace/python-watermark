@@ -1,12 +1,12 @@
-from datetime import datetime
+﻿from datetime import datetime
 
 watermark     = r".\watermark.png"
-position      = (1, 0.10)
-ratio         = 0.10
+position      = (1, 0.05)
+ratio         = 0.11
 font          = r".\Roboto.ttf"
 font_color    = (255, 255, 255)
-font_position = (0.99, 0.99)
-font_ratio    = 36/3072
+font_position = (0.99, 0.985)
+font_ratio    = 55/3072
 text          = "© {} Rent A Place".format(datetime.now().year)
 
 # ----------------------------
