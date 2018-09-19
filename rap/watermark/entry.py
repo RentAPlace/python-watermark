@@ -44,7 +44,6 @@ LOG_LOCK = threading.RLock()
 def cli():
     print("Welcome to watermark...")
     c.init([CONFIG_SRC, WATERMARK_SRC, FONT_SRC], [PACKAGE_CONFIG_SRC, PACKAGE_WATERMARK_SRC, PACKAGE_FONT_SRC])
-    pass
 
 
 @cli.command(help=HELP["edit"])
@@ -66,7 +65,7 @@ def reset():
 @click.option("-v", "--verbose", is_flag=True, help=HELP["verbose"])
 def run(directory, config=None, edit_config=None, verbose=None):
     print("This utility might be uninterruptible once started.")
-    click.confirm("Apply a watermark to all images in current folder and all subfolders ?", abort=True)
+    click.confirm("Apply a watermark to all images in \"{}\" and all subfolders ?".format(directory), abort=True)
     timespan, _ = t.timeit(run_task, directory, verbose)
     print("Done. Execution took {0:.2f} seconds.".format(timespan))
 
@@ -83,4 +82,4 @@ def process_image(image_src, conf, verbose):
         with LOG_LOCK:
             print("Applying watermark on image file:", image_src, "...")
     result = w.watermark(image_src, conf)
-    result.save(image_src, "JPEG", quality=100)
+    result.save(image_src, quality=100)
